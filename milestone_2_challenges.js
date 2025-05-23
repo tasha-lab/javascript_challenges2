@@ -86,3 +86,33 @@ function sumEvenNumbers(arr) {
   console.log(result);
 }
 sumEvenNumbers([2, 4, 7, 5]);
+
+// //Count Truthy
+// function countTruthy(){
+
+// }
+
+//10. Average of Numbers
+function average(arr) {
+  if (arr.length === 0) return 0;
+  const sum = arr.reduce((current, num) => {
+    return current + num;
+  });
+  return sum / arr.length;
+}
+console.log(average([10, 10, 10]));
+console.log(average([]));
+console.log(average([7, 9, 8, 5]));
+
+//11. Linear Search
+function linearSearch(numbers, nos) {
+  const number = numbers.find((number) => number == nos);
+  const index = numbers.indexOf(number);
+  if (index) {
+    console.log(index - 1);
+  } else return -1;
+}
+
+linearSearch([5, 3, 7, 1, 4], 5);
+linearSearch([15, 10, 5, 20, 22], 5);
+linearSearch([5, 3, 1, 4], 7);
