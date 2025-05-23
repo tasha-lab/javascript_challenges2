@@ -58,7 +58,12 @@ findLongestWord(["apple", "banana", "pear", "grapefruit"]);
 findLongestWord(["Annpatrice", "Natasha", "Abdifatah", "Charity"]);
 
 //5. Count Properties
-function countProperties() {}
+function countProperties(object) {
+  let properties = Object.keys(object);
+  console.log(properties.length)
+}
+countProperties({ name: "Alice", age: 25, city: "Paris" }) // returns: 3
+countProperties({ name: "Alice", age: 25, city: "Paris", lastname: "wanjiku", })
 
 //6. Filter by Length
 function filterByLength(arr, minlength) {
@@ -87,7 +92,7 @@ function sumEvenNumbers(arr) {
 }
 sumEvenNumbers([2, 4, 7, 5]);
 
-// //Count Truthy
+// // 9. Count Truthy
 // function countTruthy(){
 
 // }
@@ -116,3 +121,34 @@ function linearSearch(numbers, nos) {
 linearSearch([5, 3, 7, 1, 4], 5);
 linearSearch([15, 10, 5, 20, 22], 5);
 linearSearch([5, 3, 1, 4], 7);
+
+//12. Reverse Linear Search
+function reverseLinearSearch(arr, num){
+  // let lastOccurrence= arr.length - 1
+  for (let i= arr.length -1;i>=0;i--){
+    if(arr[i]==num){
+      return i
+    }
+ }
+ return -1
+
+}
+console.log(reverseLinearSearch([5, 3, 7, 1, 4, 7], 7))
+console.log(reverseLinearSearch([1, 2,3,4,5],10))
+console.log(reverseLinearSearch([5, 3, 7, 1, 4, 7], 0))
+
+//13. Linear Search All Indices
+function linearSearchAll(arr, num){
+  const match=[]
+  for(let i=0;i<arr.length;i++){
+      if(arr[i]===num){
+          match.push(i)
+      }
+      
+  }
+  return match;
+}
+console.log(linearSearchAll([5, 3, 7, 1, 4, 7], 7))
+console.log(linearSearchAll([5, 3, 7, 1, 4, 7], 0))
+console.log(linearSearchAll([5, 3, 7, 1, 44, 72], 20))
+
