@@ -4,8 +4,8 @@
   "main": "milestone_2_challenges.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format":"prettier --write",
-    "dev":"milestone_2_challenges"
+    "format": "prettier --write .",
+    "dev": "nodemon milestone_2_challenges.js"
   },
   "keywords": [],
   "author": "",
