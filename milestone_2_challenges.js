@@ -92,10 +92,46 @@ function sumEvenNumbers(arr) {
 }
 sumEvenNumbers([2, 4, 7, 5]);
 
-// // 9. Count Truthy
-// function countTruthy(){
+//8. Difference Between Sum of Even and Odd Numbers 
 
-// }
+function differenceEvenOdd(arr){
+  // let num = []
+  let evenNum = arr.filter(num => num % 2 === 0)
+  let oddNum = arr.filter(num => num % 2 !== 0)
+
+  let sumEven = 0;
+  for (let i =0; i<evenNum.length; i++){
+  sumEven = sumEven + evenNum[i]
+  }
+
+ let sumOdd=0;
+  for (let i =0; i<oddNum.length; i++){
+    sumOdd = sumOdd + oddNum[i]
+  }
+  let difference = sumEven - sumOdd
+  console.log(difference)
+}
+
+differenceEvenOdd([2,2,2,1,1,1])
+differenceEvenOdd([22,29,20,19,13,10])
+differenceEvenOdd([1, 2, 3, 4, 5, 6])
+
+
+// // 9. Count Truthy
+function countTruthy(object){
+
+  let truthyCount = 0;
+  let values = Object.values(object);
+  for (let i = 0; i < values.length; i++){
+    if(values[i] == "null" || values[i] == "0" || values[i] == "false" || values[i] == ""){
+      continue
+    } else {
+      truthyCount++;
+    }
+  }
+  console.log(truthyCount)
+}
+countTruthy({ a: 0, b: "hello", c: false, d: 42, e: null });
 
 //10. Average of Numbers
 function average(arr) {
@@ -152,3 +188,59 @@ console.log(linearSearchAll([5, 3, 7, 1, 4, 7], 7))
 console.log(linearSearchAll([5, 3, 7, 1, 4, 7], 0))
 console.log(linearSearchAll([5, 3, 7, 1, 44, 72], 20))
 
+// Challenge 14. Count Occurences
+
+function countOccurrences(arr){
+  const objectKeyNames = new Set(arr);
+  const keyNamesArray = Array.from(objectKeyNames); 
+  let arrayValueIterations = new Object();
+  let count = 0;
+  for (let i = 0; i < keyNamesArray.length; i++){
+    for (let t = 0; t < arr.length; t++){
+      if (arr[t] == keyNamesArray[i]){
+        count += 1;
+      }
+    }
+    arrayValueIterations[keyNamesArray[i]] = count; 
+    count = 0;
+  }
+  console.log(arrayValueIterations)
+}
+countOccurrences(["apple", "banana", "apple", "orange", "banana", "apple"]) 
+countOccurrences(["ten", "five", "apple", "one", "ten", "one"]) 
+
+// Challenge 15. Remove Duplicate
+
+function removeDuplicates(array){
+  const noDuplicatesArray = Array.from(new Set(array));
+  console.log(noDuplicatesArray)
+}
+removeDuplicates([1, 2, 3, 2, 4, 1, 5]) 
+removeDuplicates([1, 6,6,7,6,6,3,4,2,1])
+
+
+// Challenge 16. Most Frequent
+function mostFrequent(arr){
+  let mostOccuringCount = 0;
+  let mostOccuringValue;
+  const objectKeyNames = new Set(arr);
+  const keyNamesArray = Array.from(objectKeyNames);
+  let count = 0;
+  for (let i = 0; i < keyNamesArray.length; i++){
+    for (let t = 0; t < arr.length; t++){
+      if (arr[t] === keyNamesArray[i]){
+        count += 1;
+      }
+    }
+    if (count > mostOccuringCount){
+      mostOccuringValue = keyNamesArray[i];
+      mostOccuringCount = count;
+    } else {
+      continue
+    }
+    count = 0;
+  }
+  console.log(mostOccuringValue)
+}
+mostFrequent([1, 2, 2, 3, 3, 3, 4])
+mostFrequent(["apple", "banana", "apple", "orange", "banana", "apple"]) 
