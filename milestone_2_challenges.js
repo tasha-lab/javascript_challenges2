@@ -116,25 +116,17 @@ differenceEvenOdd([2, 2, 2, 1, 1, 1]);
 differenceEvenOdd([22, 29, 20, 19, 13, 10]);
 differenceEvenOdd([1, 2, 3, 4, 5, 6]);
 
-// // 9. Count Truthy
-function countTruthy(object) {
-  let truthyCount = 0;
-  let values = Object.values(object);
-  for (let i = 0; i < values.length; i++) {
-    if (
-      values[i] == "null" ||
-      values[i] == "0" ||
-      values[i] == "false" ||
-      values[i] == ""
-    ) {
-      continue;
-    } else {
-      truthyCount++;
+// Challenge 9: County Truthy
+function countTruthy(obj) {
+  let count = 0;
+  for (let key in obj) {
+    if (obj[key]) {
+      count++;
     }
   }
-  console.log(truthyCount);
+  return count;
 }
-countTruthy({ a: 0, b: "hello", c: false, d: 42, e: null });
+console.log(countTruthy({ a: 0, b: "hello", c: false, d: 42, e: null }));
 
 //10. Average of Numbers
 function average(arr) {
